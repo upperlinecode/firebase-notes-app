@@ -3,7 +3,8 @@ window.onload = (event) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       console.log('Logged in as: ' + user.displayName);
-      getNotes();
+      const googleUserId = user.uid;
+      getNotes(googleUserId);
     } else {
       // If not logged in, navigate back to login page.
       window.location = 'index.html'; 
@@ -11,15 +12,15 @@ window.onload = (event) => {
   });
 };
 
-const getNotes = () => {
-  const notesRef = firebase.database().ref('users');
+const getNotes = (userId) => {
+  const notesRef = firebase.database().ref(`users/${userId}`);
   notesRef.on('value', (snapshot) => {
     const data = snapshot.val();
     renderDataAsHtml(data);
   });
 };
 
-const renderDataAsHtml = data => {
+const renderDataAsHtml = (data) => {
   let cards = ``;
   for(const noteItem in data) {
     const note = data[noteItem];
