@@ -5,7 +5,8 @@ window.onload = (event) => {
       console.log('Logged in as: ' + user.displayName);
       getNotes();
     } else {
-      window.location = 'index.html'; // If not logged in, navigate back to login page.
+      // If not logged in, navigate back to login page.
+      window.location = 'index.html'; 
     };
   });
 };
@@ -16,4 +17,34 @@ const getNotes = () => {
     const data = snapshot.val();
     renderDataAsHtml(data);
   });
-}
+};
+
+const renderDataAsHtml = data => {
+  let cards = ``;
+  for(const noteItem in data) {
+    const note = data[noteItem];
+    // For each note create an HTML card
+    cards += createCard(note)
+  };
+  // Inject our string of HTML into our viewNotes.html page
+  document.getElementById('app').innerHTML = cards;
+};
+
+const createCard = (note) => {
+  let innerHTML = "";
+  innerHTML += `<div class="column is-one-quarter">`
+  innerHTML += `<div class="card">`
+  innerHTML += `<header class="card-header">`
+  innerHTML += `<p class="card-header-title">`
+  innerHTML += `${note.title}`
+  innerHTML += `</p>`
+  innerHTML += `</header>`
+  innerHTML += `<div class="card-content">`
+  innerHTML += `<div class="content">`
+  innerHTML += `${note.text}`
+  innerHTML += `</div>`
+  innerHTML += `</div>`
+  innerHTML += `</div>`
+  innerHTML += `</div>`
+  return innerHTML;
+};
