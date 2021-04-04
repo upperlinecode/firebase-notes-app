@@ -34,18 +34,42 @@ const renderDataAsHtml = (data) => {
 };
 
 const editNote = (noteId) => {
-  console.log(noteId)
-  let note = document.getElementById(noteId);
-  
-}
+  const editNoteModal = document.getElementById('editNoteModal');
+  const notesRef = firebase.database().ref(`users/${googleUserId}`);
+  notesRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    const noteDetails = data[noteId];
+    document.getElementById('editTitleInput').value = noteDetails.title;
+    document.getElementById('editTextInput').value = noteDetails.text;
+  });
+  const saveEditBtn = document.getElementById('saveEdit');
+  saveEditBtn.onclick = handleSaveEdit.bind(this, noteId);
+  editNoteModal.classList.toggle('is-active');
+};
 
 const deleteNote = (noteId) => {
   firebase.database().ref(`users/${googleUserId}/${noteId}`).remove();
 }
 
+const handleSaveEdit = (noteId) => {
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  const noteTitle = document.getElementById('editTitleInput').value;
+  const noteText = document.getElementById('editTextInput').value;
+  const noteEdits = {
+    title: noteTitle,
+    text: noteText
+  };
+  firebase.database().ref(`users/${googleUserId}/${noteId}`).update(noteEdits);
+  closeEditModal();
+}
+
+const closeEditModal = () => {
+  const editNoteModal = document.getElementById('editNoteModal');
+  editNoteModal.classList.toggle('is-active');
+};
+
 const createCard = (note, noteId) => {
   let innerHTML = "";
-  console.log(note, noteId)
   innerHTML += `<div class="column is-one-quarter">`
   innerHTML += `<div class="card">`
   innerHTML += `<header class="card-header">`
