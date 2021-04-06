@@ -1,4 +1,20 @@
-# firebase-notes-app
+# Google Authentication, and Writing Data to Realtime Database using Firebase
+
+## Objectives
+- Students will create a Firebase project and initialize a Firebase app in their project directory
+- Students will use Firebase authentication to sign-in Google users
+- Students will verify users authentication state upon navigating to a new page within the app
+- Students will use the Firebase API to write and save new records to their Realtime Database
+
+**Key Vocabulary: authentication, writing data, event handler**
+
+## What We're Building
+Over the next three days, we will be building a note-taking application similiar to Google Keep. Today we'll focus on adding the functionality to sign-in Google users, and write and save new records to our Realtime Database. 
+
+## Starter Code
+This branch contains all of the code we will need to get started building our sign-in flow and writing data to our Realtime Database. 
+Most of our code will be written in the two JS files `signIn.js` and `writeNote.js`. 
+There are a couple of other files we should be aware of: `index.html` is the starting point of our app, and where we will inject our Sign In logic. `writeNote.html` contains input fields where users can write and submit notes. Here is where we'll inject the logic to write data to our Firebase RTDB. 
 
 ## Stepped Solution
 
