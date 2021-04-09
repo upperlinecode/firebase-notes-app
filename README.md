@@ -24,25 +24,25 @@ There are a couple of other files we should be aware of: `index.html` is the sta
 4. Fork and clone the `firebase-notes-app` github repository
 5. Checkout to branch `day11_starter`
 6. In the command line:
-  * npm install -g firebase-tools
-  * firebase login
-  * firebase init
+    * npm install -g firebase-tools
+    * firebase login
+    * firebase init
 7. Firebase init will add items in green to your directory
 8. Terminal prompts:
-  * Which Firebase CLI features do you want to set up for this folder? Press Space to select features, then Enter to confirm your choices.  Database, Hosting, Emulators
-  * First, let's associate this project directory with a Firebase project. You can create multiple project aliases by running firebase use  --add, but for now we'll just set up a default project. ? Please select an option: Use an existing project > Notes App
-  * What file should be used for Realtime Database Security Rules? (database.rules.json)
-  * Hosting Setup: What do you want to use as your public directory? (public)
-  * Configure as a single-page app (rewrite all urls to /index.html)? (y/N)
-  * Set up automatic builds and deploys with GitHub? (y/N)
-  * File public/index.html already exists. Overwrite? N
-  * Emulators Setup: Which Firebase emulators do you want to set up? Press Space to select emulators, then Enter to confirm your choices.   Authentication, Database, Hosting
-  * Which port do you want to use for the auth emulator? (9099)
-  * Which port do you want to use for the database emulator? (9000)
-  * Which port do you want to use for the hosting emulator? (5000)
-  * Would you like to enable the Emulator UI? (Y/n)
-  * Which port do you want to use for the Emulator UI (leave empty to use any available port)? default/press Enter
-  * Would you like to download the emulators now? (y/N)
+    * Which Firebase CLI features do you want to set up for this folder? Press Space to select features, then Enter to confirm your choices.  Database, Hosting, Emulators
+    * First, let's associate this project directory with a Firebase project. You can create multiple project aliases by running firebase use  --add, but for now we'll just set up a default project. ? Please select an option: Use an existing project > Notes App
+    * What file should be used for Realtime Database Security Rules? (database.rules.json)
+    * Hosting Setup: What do you want to use as your public directory? (public)
+    * Configure as a single-page app (rewrite all urls to /index.html)? (y/N)
+    * Set up automatic builds and deploys with GitHub? (y/N)
+    * File public/index.html already exists. Overwrite? N
+    * Emulators Setup: Which Firebase emulators do you want to set up? Press Space to select emulators, then Enter to confirm your choices.   Authentication, Database, Hosting
+    * Which port do you want to use for the auth emulator? (9099)
+    * Which port do you want to use for the database emulator? (9000)
+    * Which port do you want to use for the hosting emulator? (5000)
+    * Would you like to enable the Emulator UI? (Y/n)
+    * Which port do you want to use for the Emulator UI (leave empty to use any available port)? default/press Enter
+    * Would you like to download the emulators now? (y/N)
 9. In HTML page add a button with an onclick handler (onclick = “signIn()”)
 10. Link the signIn.js script file
 11. In the signIn.js script create a signIn() function
